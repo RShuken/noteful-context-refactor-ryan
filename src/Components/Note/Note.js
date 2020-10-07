@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SideBar from "../SideBar/SideBar";
+import DeleteBtn from '../DeleteBtn';
 
 export default class Note extends Component {
 
@@ -22,6 +23,7 @@ export default class Note extends Component {
         <h3>Name: {thisNote[0].name}</h3>
         <p>Date modified: {thisNote[0].modified}</p>
         <p>Content: {thisNote[0].content}</p>
+        <DeleteBtn {...props} deleteId = {idNote}/>
       </div>
     );
   }
