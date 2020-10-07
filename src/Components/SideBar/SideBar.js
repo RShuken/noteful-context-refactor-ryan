@@ -1,17 +1,41 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
+import AppContext from '../../AppContext';
 
-export default class SideBar extends Component {
+ class SideBar extends Component {  
+
+  static contextType = AppContext; 
+
   render() {
-    return (
-      <div>
+    console.log('this is the context', this.context);
+    const template = this.context.folders ? (
+      <div className="sidebar">
         <ul>Folders</ul>
-        {this.props.folders.map((folder) => (
-          <Link key={folder.id} to={{ pathname: `/folder/${folder.id}` }}>
+        {this.context.folders.map((folder) => (
+          <NavLink key={folder.id} to={{ pathname: `/folder/${folder.id}` }}>
             <li>{folder.name}</li>
-          </Link>
+          </NavLink>
         ))}
       </div>
+    ) : (
+      <>
+      <h2>Folder: {this.props.folderName[0].name}</h2>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.history.goBack();
+            }}
+          >Back
+          </button>
+      </>
     );
-  }
+
+    return ( 
+      <>
+        {template}
+        </>
+    );
+  } 
 }
+
+export default withRouter(SideBar)
