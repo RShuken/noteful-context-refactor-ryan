@@ -15,9 +15,8 @@ export default class Note extends Component {
     console.log(this.props)
     return (
       <div>
-        <SideBar folderName={parentFolder} history={this.props.history}/>
+        <SideBar folderName={parentFolder}/>
         <div>
-
           <p>{folders.name}</p>
         </div>
         <h3>Name: {thisNote[0].name}</h3>

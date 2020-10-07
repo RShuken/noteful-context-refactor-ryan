@@ -31,7 +31,7 @@ import { NavLink, withRouter } from "react-router-dom";
         {template}
         </>
     );
-  }
+  } 
 }
 
 export default withRouter(SideBar)
