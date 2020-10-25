@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+   background-color: #41B3A3;
 }
 
 code {
@@ -12,22 +13,92 @@ code {
     monospace;
 }
 
+body a {
+  text-decoration: none;
+  list-style: none;
+  color: black;
+}
+
 .App {
   text-align: center;
-  max-width: 600px;
-  display: flex; 
-  flex-direction: column;
-  margin-left: 30%;
-  margin-right: 30%;
 }
 
 .header {
   border: 2px black solid;
   margin: 10px;
+  border-radius: 5px;
+  background-color: #e27d60;
+  
 }
 
 .sidebar {
   border: 2px black solid;
   margin: 10px;
+  border-radius: 5px;
+  background-color: #c38d9e;
+  display: flex;
+  flex-direction: column;
 }
 
+.card {
+  border: 2px solid black; 
+  margin: 15px;
+  border-radius: 5px;
+  background-color: #e8a87c;
+}
+
+.add_note_form {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black; 
+  margin: 15px;
+  border-radius: 5px;
+  background-color: #85dcb8;
+
+}
+
+.add_folder_form {
+  border: 2px black solid;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #c38d9e;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar ul {
+  margin: 0px;
+  padding: 0px;
+}
+.sidebar li {
+  color: #242582;
+  font-weight: 700;
+}
+
+@media all and (min-width:800px) {
+
+  .App {
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "sidebar cardList cardList";
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    max-height: 100%;
+  }
+
+  .add_note_form {
+    grid-area: addNoteForm;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .cardList {
+    grid-area: cardList;
+  }
+
+}

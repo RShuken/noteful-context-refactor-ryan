@@ -13,7 +13,6 @@ export default class Note extends Component {
     const noteFolderId = thisNote[0].folderId;
     const parentFolder = folders.filter((folder) => folder.id === noteFolderId)
 
-    console.log(this.props)
     return (
       <div>
         <SideBar folderName={parentFolder}/>
@@ -23,7 +22,7 @@ export default class Note extends Component {
         <h3>Name: {thisNote[0].name}</h3>
         <p>Date modified: {thisNote[0].modified}</p>
         <p>Content: {thisNote[0].content}</p>
-        <DeleteBtn {...props} deleteId = {idNote}/>
+        <DeleteBtn {...this.props} deleteId = {idNote}/>
       </div>
     );
   }

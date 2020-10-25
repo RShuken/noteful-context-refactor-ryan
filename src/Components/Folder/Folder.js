@@ -10,13 +10,11 @@ export default class Folder extends Component {
   render() {  
     const { match, folders } = this.props;
     const idMatch = match.params.folderId;
-    //console.log('this is the params of match', idMatch)
-   // console.log('these are the notes', notes)
     return (
-      <div>
+      <>
         <SideBar />
         <Main notes={this.context.notes.filter(note => note.folderId === idMatch)} />
-      </div>
+      </>
     );
   }
 }

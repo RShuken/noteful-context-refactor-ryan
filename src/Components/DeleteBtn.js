@@ -4,21 +4,16 @@ import {withRouter} from 'react-router-dom';
 
 class DeleteBtn extends Component{
 
-    static contextType = AppContext;
-
-    handleDeleteBtn = (deleteId) => {
-        fetch(`http://localhost:9090/notes/${deleteId}`, 
-        { method: 'DELETE', headers: { 'content-type': 'application/json' }, })
-        .then(this.props.history.push('/'))
-        
-    }
+  //  static contextType = AppContext;
 
     render(){
 
         return(
-            <AppContext.Provider value={{folders: this.props.folders, notes: this.props.notes}}>
-            <button onClick = {()=>this.handleDeleteBtn(this.props.deleteId)}>Delete</button>
-            </AppContext.Provider>
+            <AppContext.Consumer>
+                {({deleteNote}) => (
+                <button onClick = {()=>deleteNote(this.props.deleteId).then(this.props.history.push("/"))}>Delete</button>
+                )}
+            </AppContext.Consumer>
         )
     }
 }
