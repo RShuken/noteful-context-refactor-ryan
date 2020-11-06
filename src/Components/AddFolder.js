@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AppContext from '../AppContext';
- 
+import PropTypes from 'prop-types';
 
 
 class AddFolder extends Component {
@@ -13,6 +13,8 @@ class AddFolder extends Component {
   }
 
   static contextType = AppContext;
+
+
 
   updateFolderName = (name) => {
     this.setState({ folderName: name, touched: true });
@@ -33,12 +35,11 @@ class AddFolder extends Component {
     e.preventDefault();
     this.context.addNewFolder(this.state.folderName);
     e.target.value = ''
-    this.setState({folderName: " "})
+    this.setState({ folderName: " " })
+    this.props.addFolderToTrue();
   };
 
   render() {
-    const { match } = this.props;
-
     return (
       <form
         type="submit"
@@ -63,3 +64,7 @@ class AddFolder extends Component {
 }
  
 export default AddFolder;
+
+AddFolder.propTypes = {
+  addFolderToTrue: PropTypes.func.isRequired,
+}

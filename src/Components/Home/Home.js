@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-
-// import {Route} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default class MainView extends Component {
   render() {
@@ -11,3 +10,10 @@ export default class MainView extends Component {
     );
   }
 }
+
+MainView.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};

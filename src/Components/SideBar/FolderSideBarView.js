@@ -18,9 +18,6 @@ class FolderSideBar extends Component {
   static contextType = AppContext;
 
   render() {
-    const { match } = this.props;
-    console.log(match.params)
-    //const idMatch = match.params;
      return (
       <div className="sidebar">
         <h2>Folder: {this.context.folders[0].name}</h2>
